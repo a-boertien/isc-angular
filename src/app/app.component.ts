@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'isc-angular';
+  appName = 'InterSystems Corp Awesome Angular App';
+  x = 10;
+  obj = {
+    firstName : 'John'
+  }
+
+  greet() {
+    return 'Hello!';
+  }
+
 }

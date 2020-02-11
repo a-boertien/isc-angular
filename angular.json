@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "isc-angular": {
@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "isc-angular"
+    }
+  },
+  "defaultProject": "isc-angular",
+  "cli": {
+    "analytics": false
+  }
 }
