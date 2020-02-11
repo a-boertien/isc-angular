@@ -1,0 +1,21 @@
+<h3>Payees Search</h3>
+<div class="form-group row">
+  <label class="col-2" for="payees-search">Payee name: </label>
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      id="payees-search"
+      (input)="handleTextInput($event)"
+    />
+  </div>
+  <div class="col-1">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="handleButtonClick($event)"
+    >
+      Search!
+    </button>
+  </div>
+</div>
