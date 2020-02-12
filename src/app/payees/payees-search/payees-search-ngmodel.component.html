@@ -1,0 +1,42 @@
+<h3>Payees Search</h3>
+<div class="form-group row">
+  <label class="col-2" for="payees-search">Payee name: </label>
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      id="payees-search"
+      [ngModel]="searchText"
+      (ngModelChange)="handleTextInput($event)"
+    />
+  </div>
+  <div class="col-1">
+    <button
+      class="btn btn-primary"
+      type="button"
+      (click)="handleButtonClick($event)"
+    >
+      Search!
+    </button>
+  </div>
+</div>
+
+<!-- <p *ngIf="searchText.length > 2">You are searching on {{ searchText }}</p> -->
+<!-- <p [style]="{display: searchText.length > 2 ? 'block' : 'none'}">You are searching on {{ searchText }}</p> -->
+<!-- <p [style]="getStyleConfig()">You are searching on {{ searchText }}</p> -->
+
+<!-- Other possibilities -->
+<!-- <p [style]="getStyleConfig()">You are searching on {{ searchText }}</p> -->
+<!-- <p [style.display]="searchText.length > 2 ? 'block' : 'none'">You are searching on {{ searchText }}</p> -->
+<!-- <p [style.display]="displayValue">You are searching on {{ searchText }}</p> -->
+<!-- <p [style]="{fontWeight: searchText.length > 2 ? 'bold' : 'normal', border: searchText.length > 2 ? '2px blue dotted' : '4px gray dashed'}">You are searching on {{ searchText }}</p> -->
+
+<!-- With [class] which now supplants [ngClass] -->
+<!-- <p [class]="searchText.length > 2 ? '' : 'hide'">
+  You are searching on {{ searchText }}
+</p>
+ -->
+<p [class.hide]="searchText.length < 3">
+  You are searching on {{ searchText }}
+</p>
+

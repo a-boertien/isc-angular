@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { StarterService } from 'src/app/starter.service';
 
 @Component({
   selector: "payees-manager",
@@ -10,16 +11,15 @@ import { Component, OnInit } from "@angular/core";
     </div>
     <div class="row">
       <div class="col">
-        <payees-search
-          (searchPayees)="handleSearchPayees($event)"
-        ></payees-search>
+        <payees-search-ngmodel></payees-search-ngmodel>
       </div>
     </div>
   `,
   styles: []
 })
 export class PayeesManagerComponent implements OnInit {
-  constructor() {}
+
+  constructor(public starter: StarterService) {}
 
   ngOnInit(): void {}
 
