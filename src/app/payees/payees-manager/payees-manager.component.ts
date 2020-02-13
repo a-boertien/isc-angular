@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PayeesDaoService } from '../payees-dao.service';
 import { Subscription } from 'rxjs';
+import { Payee } from '..';
 
 @Component({
   selector: 'payees-manager',
@@ -13,7 +14,7 @@ import { Subscription } from 'rxjs';
     <div class="row">
       <div class="col">
         <!-- <payees-search-ngmodel></payees-search-ngmodel> -->
-        <payees-list></payees-list>
+        <payees-list [payees]="payees"></payees-list>
       </div>
     </div>
   `,
@@ -22,6 +23,7 @@ import { Subscription } from 'rxjs';
 export class PayeesManagerComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   subs: Subscription[] = [];
+  payees: Payee[] = [];
 
   constructor(private dao: PayeesDaoService) {}
 
@@ -31,7 +33,7 @@ export class PayeesManagerComponent implements OnInit, OnDestroy {
     this.subs.push(
       obs.subscribe(
         payees => {
-          console.log('Payees: ', payees);
+          this.payees = payees;
         },
         error => {
           console.error('The DAO reported an error: ', error.message);

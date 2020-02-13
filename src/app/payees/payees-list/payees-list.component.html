@@ -1,1 +1,16 @@
-<p>payees-list works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Payee Name</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payee of payees">
+      <td>{{ payee.payeeName }}</td>
+      <td>{{ payee.address?.city }}</td>
+      <td>{{ payee.address?.state }}</td>
+    </tr>
+  </tbody>
+</table>
