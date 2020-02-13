@@ -1,9 +1,9 @@
 <table class="table" [hidden]="!loaded">
   <thead>
     <tr>
-      <th>Payee Name</th>
-      <th>City</th>
-      <th>State</th>
+      <th (click)="handleHeaderClick('payeeName')">Payee Name</th>
+      <th (click)="handleHeaderClick('address.city')">City</th>
+      <th (click)="handleHeaderClick('address.state')">State</th>
     </tr>
   </thead>
   <tbody>
