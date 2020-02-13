@@ -1,8 +1,9 @@
-import { Component, OnInit } from "@angular/core";
-import { StarterService } from 'src/app/starter.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { PayeesDaoService } from '../payees-dao.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: "payees-manager",
+  selector: 'payees-manager',
   template: `
     <div class="row">
       <div class="col">
@@ -11,19 +12,49 @@ import { StarterService } from 'src/app/starter.service';
     </div>
     <div class="row">
       <div class="col">
-        <payees-search-ngmodel></payees-search-ngmodel>
+        <!-- <payees-search-ngmodel></payees-search-ngmodel> -->
+        <payees-list></payees-list>
       </div>
     </div>
   `,
   styles: []
 })
-export class PayeesManagerComponent implements OnInit {
+export class PayeesManagerComponent implements OnInit, OnDestroy {
+  subscription: Subscription;
+  subs: Subscription[] = [];
 
-  constructor(public starter: StarterService) {}
+  constructor(private dao: PayeesDaoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const obs = this.dao.getAllPayees();
+
+    this.subs.push(
+      obs.subscribe(
+        payees => {
+          console.log('Payees: ', payees);
+        },
+        error => {
+          console.error('The DAO reported an error: ', error.message);
+        }
+      )
+    );
+
+    /*
+    setTimeout(() => {
+      obs.subscribe(payees => {
+        console.log('Payees: ', payees);
+      });
+    }, 10000)
+    */
+
+    this.dao.getPayeeById('500');
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe());
+  }
 
   handleSearchPayees(foo) {
-    console.log("PayeesManager: payeesSearch: ", foo);
+    console.log('PayeesManager: payeesSearch: ', foo);
   }
 }
