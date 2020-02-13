@@ -13,6 +13,7 @@ Links that were mentioned in class:
 * John's settings and keyboard bindings: [https://gist.github.com/johnpaxton/]
 * Augury (Angular devtools for the browser): [https://augury.rangle.io/]
 * Emmet (shortcuts for HTML): [https://emmet.io/]
+* Article on reactive programming [https://gist.github.com/staltz/868e7e9bc2a7b8c1f754]
 
 ## VS Code Plugins
 

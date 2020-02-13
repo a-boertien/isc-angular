@@ -14,8 +14,8 @@ import { Payee } from '..';
     <div class="row">
       <div class="col">
         <!-- <payees-search-ngmodel></payees-search-ngmodel> -->
-        <!-- <payees-list [payees]="payees"></payees-list> -->
-        <payees-list-observable [payees]="payees$"></payees-list-observable>
+        <payees-list [payees]="payees"></payees-list>
+        <!-- <payees-list-observable [payees]="payees$"></payees-list-observable> -->
       </div>
     </div>
   `,
@@ -33,7 +33,7 @@ export class PayeesManagerComponent implements OnInit, OnDestroy {
     const obs = this.dao.getAllPayees();
     this.payees$ = obs;
 
-/*     this.subs.push(
+    this.subs.push(
       obs.subscribe(
         payees => {
           this.payees = payees;
@@ -43,7 +43,7 @@ export class PayeesManagerComponent implements OnInit, OnDestroy {
         }
       )
     );
- */
+
     /*
     setTimeout(() => {
       obs.subscribe(payees => {
