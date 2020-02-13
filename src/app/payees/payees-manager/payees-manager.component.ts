@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PayeesDaoService } from '../payees-dao.service';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Payee } from '..';
 
 @Component({
@@ -14,7 +14,8 @@ import { Payee } from '..';
     <div class="row">
       <div class="col">
         <!-- <payees-search-ngmodel></payees-search-ngmodel> -->
-        <payees-list [payees]="payees"></payees-list>
+        <!-- <payees-list [payees]="payees"></payees-list> -->
+        <payees-list-observable [payees]="payees$"></payees-list-observable>
       </div>
     </div>
   `,
@@ -24,13 +25,15 @@ export class PayeesManagerComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   subs: Subscription[] = [];
   payees: Payee[] = [];
+  payees$: Observable<Payee[]>;
 
   constructor(private dao: PayeesDaoService) {}
 
   ngOnInit(): void {
     const obs = this.dao.getAllPayees();
+    this.payees$ = obs;
 
-    this.subs.push(
+/*     this.subs.push(
       obs.subscribe(
         payees => {
           this.payees = payees;
@@ -40,7 +43,7 @@ export class PayeesManagerComponent implements OnInit, OnDestroy {
         }
       )
     );
-
+ */
     /*
     setTimeout(() => {
       obs.subscribe(payees => {

@@ -1,0 +1,20 @@
+<table class="table" [hidden]="!loaded">
+  <thead>
+    <tr>
+      <th>Payee Name</th>
+      <th>City</th>
+      <th>State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payee of displayPayees | async">
+      <td>{{ payee.payeeName }}</td>
+      <td>{{ payee.address?.city }}</td>
+      <td>{{ payee.address?.state }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!loaded">
+  <h3>No Payees at this time</h3>
+</div>

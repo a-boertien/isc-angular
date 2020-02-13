@@ -4,7 +4,7 @@ import { Payee } from './';
 import { throwError, Observable } from 'rxjs';
 import { catchError  } from 'rxjs/operators'
 
-const baseUrl = 'http://localhost:8000/api/v1/banking/payees';
+const baseUrl = 'http://localhost:8000/api/v1/banking/payees?_delay=2000';
 
 @Injectable({
   providedIn: 'root'
