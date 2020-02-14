@@ -7,7 +7,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let payee of payees">
+    <tr *ngFor="let payee of payees; trackBy: myCustomTrackBy">
       <td>{{ payee.payeeName }}</td>
       <td>{{ payee.address?.city }}</td>
       <td>{{ payee.address?.state }}</td>

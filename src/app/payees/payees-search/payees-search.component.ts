@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'payees-search',
@@ -6,22 +7,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./payees-search.component.css']
 })
 export class PayeesSearchComponent implements OnInit {
-
-  searchText='';
+  searchText = '';
 
   @Output()
   searchPayees = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   handleButtonClick(event) {
     console.log(`You are searching on ${this.searchText}`);
     // console.log('You are searching on ', this.searchText);
 
     this.searchPayees.emit(this.searchText);
+    this.router.navigate(['payees', 'browse'], {
+      queryParams: { searchText: this.searchText }
+    });
   }
 
   handleTextBlur(event: FocusEvent) {
@@ -31,5 +33,4 @@ export class PayeesSearchComponent implements OnInit {
   handleTextInput(event: InputEvent) {
     this.searchText = (<HTMLInputElement>event.target).value;
   }
-
 }

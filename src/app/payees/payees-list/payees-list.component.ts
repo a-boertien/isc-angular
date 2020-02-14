@@ -31,6 +31,10 @@ export class PayeesListComponent implements OnInit {
 
   ngOnInit() {}
 
+  myCustomTrackBy(index, item) {
+    return `${item.id} ${item.version}`;
+  }
+
   handleHeaderClick(sortField: string) {
     let sortDirection: SortDirection = 'asc';
 

@@ -9,6 +9,7 @@ import { PayeesSearchNgModelComponent } from './payees-search/payees-search-ngmo
 import { PayeesManagerComponent } from './payees-manager/payees-manager.component';
 import { PayeesListComponent } from './payees-list/payees-list.component';
 import { PayeesListObservableComponent } from './payees-list/payees-list-observable.component';
+import { PayeesListRoutedComponent } from './payees-list/payees-list-routed.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PayeesListObservableComponent } from './payees-list/payees-list-observa
     PayeesSearchNgModelComponent,
     PayeesListComponent,
     PayeesListObservableComponent,
+    PayeesListRoutedComponent,
   ],
   imports: [CommonModule, FormsModule, HttpClientModule, PayeesRoutingModule],
   exports: [PayeesManagerComponent],

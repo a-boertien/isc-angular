@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BankingGreeterComponent } from './banking-greeter/banking-greeter.component';
 import { PayeesModule } from './payees/payees.module';
+import { HomeComponent } from './home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BankingGreeterComponent
+    BankingGreeterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

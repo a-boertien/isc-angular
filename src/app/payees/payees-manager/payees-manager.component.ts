@@ -15,7 +15,12 @@ import { Payee } from '..';
       <div class="col">
         <!-- <payees-search-ngmodel></payees-search-ngmodel> -->
         <!-- <payees-list [payees]="payees"></payees-list> -->
-        <payees-list-observable [payees]="payees$"></payees-list-observable>
+        <!-- <payees-list-observable [payees]="payees$"></payees-list-observable> -->
+        <ul class="list-inline">
+          <li class="list-inline-item"><a routerLink="search">Search</a></li>
+          <li class="list-inline-item"><a routerLink="browse">Browse</a></li>
+        </ul>
+        <router-outlet></router-outlet>
       </div>
     </div>
   `,
